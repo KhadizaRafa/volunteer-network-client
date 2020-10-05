@@ -1,0 +1,19 @@
+ .social-btn{
+    width:95%;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+    border-radius: 57px;
+    cursor: pointer;
+}
+.social-img{
+    width:25px;
+}
+.login-form{
+    width: 40%;
+    margin-top:25%;
+    border-radius: 50px;
+}
+.login-tag{
+    cursor: pointer;
+    text-decoration: underline;
+}

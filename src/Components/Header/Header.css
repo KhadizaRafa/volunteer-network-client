@@ -1,0 +1,27 @@
+.navContainer{
+    background: transparent;
+    margin-bottom: 40px;
+}
+.logoImg > img{
+    padding-left: 20px;
+    padding-right: 50px;
+}
+#basic-navbar-nav{
+    margin-left: 220px;
+}
+.navbar{
+    box-shadow: none;
+    border: none;
+}
+.logoImg img{
+    width: "200px"
+}
+.navText{
+    margin : 0px 10px;
+    color: black;
+}
+.homeBtn{
+   /* height: 30px;
+   border-radius: 20px; */
+   padding: 5px 20px !important;
+}
