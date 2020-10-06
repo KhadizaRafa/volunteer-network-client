@@ -56,11 +56,11 @@ const Register = () => {
                     <MDBCol md="5" className="register-box p-5">
                         <p className="h5 text-center mb-5">Register as a Volunteer</p>
                         <form onSubmit={handleRegister}>
-                            <MDBInput label="Full Name" group type="text" value={loggedInUser.name} />
-                            <MDBInput label="Username or Email" group type="email" value={loggedInUser.email} />
-                            <MDBInput label="Date" group type="date" name="date" onBlur={handleChange} />
-                            <MDBInput label="Description" group type="text" name="description" onBlur={handleChange} />
-                            <MDBInput label="Register for Task" group type="text" value={taskName} />
+                            <MDBInput label="Full Name" group type="text" value={loggedInUser.name} className="mt-2" />
+                            <MDBInput label="Username or Email" group type="email" value={loggedInUser.email} className="mt-2"/>
+                            <MDBInput label="Date" group type="date" name="date" onBlur={handleChange} className="mt-2"/>
+                            <MDBInput label="Description" group type="text" name="description" onBlur={handleChange} className="mt-2"/>
+                            <MDBInput label="Register for Task" group type="text" value={taskName} className="mt-2" />
                             <MDBBtn color="primary" type="submit" className="w-100">Register</MDBBtn>
                         </form>
                     </MDBCol>

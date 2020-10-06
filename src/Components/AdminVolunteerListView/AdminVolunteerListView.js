@@ -4,7 +4,6 @@ import delImg from '../../logos/trash-2 9.png'
 const AdminVolunteerListView = ({ volunteer, handleDelete }) => {
     return (
         <div className="mt-3">
-            <h5 className="mb-5">Volunteer Registration List</h5> 
             <table className="table table-striped volunteer">
                 <thead>
                     <tr>

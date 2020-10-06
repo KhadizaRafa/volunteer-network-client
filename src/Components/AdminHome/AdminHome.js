@@ -42,6 +42,9 @@ const AdminHome = () => {
                 </div>    
             </MDBCol>
             <MDBCol md='7'>
+                {
+                    !isEvent && <h5 className="mb-5">Volunteer Registration List</h5> 
+                }
                 { 
                     isEvent?
                     <AdminEventAdd></AdminEventAdd>
