@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {MDBContainer } from 'mdbreact';
 import Header from '../Header/Header';
 import Tasks from '../Tasks/Tasks';
+import './Home.css'
 
 const Home = () => {
     const [tasks, setTasks] = useState([])
@@ -19,6 +20,9 @@ const Home = () => {
     return (
         <div>
             <Header></Header>
+            <h3 className="m-5">I GROW BY HELPING PEOPLE IN NEED.</h3>
+            <input type="text" placeholder="Search ...." className="search"></input>
+            <button className="btn btn-primary">Search</button>
             <MDBContainer>
                 <MDBRow>
                         {
