@@ -27,9 +27,9 @@ function App() {
           <Route exact path="/adminHome">
             <AdminHome />
           </Route>
-          <Route exact path="/userTasks">
+          <PrivateRoute exact path="/userTasks">
             <UserTasks/>
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/register/:taskName">
             <Register />
           </PrivateRoute>

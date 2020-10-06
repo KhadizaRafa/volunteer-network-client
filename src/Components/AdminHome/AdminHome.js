@@ -1,18 +1,18 @@
-import { MDBCol, MDBContainer, MDBRow } from 'mdbreact';
+import { MDBCol, MDBRow } from 'mdbreact';
 import logo from '../../logos/Group 1329.png';
-import delImg from '../../logos/trash-2 9.png'
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import AdminVolunteerListView from '../AdminVolunteerListView/AdminVolunteerListView';
+import AdminEventAdd from '../AdminEventAdd/AdminEventAdd';
 
 const AdminHome = () => {
-    const volunteerListUrl = '/adminHome/volunteerList'
-    const eventAddUrl = '/adminHome/eventAdd'
-
+    const baseUrl = 'https://dry-refuge-10480.herokuapp.com'
     const [volunteerList, setVolunteerList] = useState([]);
     const [isDeleted, setIsDeleted] = useState(false);
+    const [isEvent,setIsEvent] = useState(false)
 
     useEffect(() => {
-        fetch('https://dry-refuge-10480.herokuapp.comgetVolunteers')
+        fetch(`${baseUrl}/getVolunteers`)
             .then(res => res.json())
             .then(result => {
                 setVolunteerList(result);
@@ -21,45 +21,40 @@ const AdminHome = () => {
     }, [isDeleted])
 
     const handleDelete = (id) => {
-        fetch(`https://dry-refuge-10480.herokuapp.comtaskDelete/${id}`, {
+        fetch(`${baseUrl}/taskDelete/${id}`, {
             method: 'DELETE'
         })
-            .then(res => res.json())
-            .then((result => {
-                if (result) {
+        .then(res => res.json())
+        .then((result => {
+            if (result) {
                     setIsDeleted(true);
-                }
-            }));
+            }
+        }));
     }
 
     return (
-        <div className="mt-3">
-        <table className="table table-striped volunteer">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Registration Date</th>
-                    <th scope="col">Volunteer list</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    volunteerList && volunteerList.map(item =>
-                        <tr key={item._id}>
-                            <th>{item.fullName}</th>
-                            <td>{item.email}</td>
-                            <td>{item.date}</td>
-                            <td>{item.taskName}</td>
-                            <td><img className="w-50" onClick={() => handleDelete(item._id)} 
-                            src={delImg} alt="delete" height="40px" width="5px" /></td>
-                        </tr>
-                    )
+        <MDBRow>
+            <MDBCol md='3'>
+                <Link to='/'><img src={logo} alt="" style={{ width: "200px"}}></img></Link>
+                <div className="col-md-12 mt-5">
+                     <Link to='#' onClick={() => setIsEvent(false)}>Volunteer List</Link><br/>
+                     <Link to='#' onClick={() => setIsEvent(true)}>Add Event</Link>
+                </div>    
+            </MDBCol>
+            <MDBCol md='7'>
+                { 
+                    isEvent?
+                    <AdminEventAdd></AdminEventAdd>
+                    :
+                    volunteerList.map(volunteer =>
+                        <AdminVolunteerListView volunteer={volunteer} key={volunteer._id} handleDelete={handleDelete} ></AdminVolunteerListView>)
                 }
-            </tbody>
-        </table>
-    </div>
+            </MDBCol>
+        </MDBRow>
+
+
+
+
     );
 };
 

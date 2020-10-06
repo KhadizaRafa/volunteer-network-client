@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../logos/Group 1329.png';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
@@ -16,13 +16,13 @@ const Header = ({displayName}) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="mx-right">
                     <Nav>
-                        <Nav.Link href='/home' className='navText'>Home</Nav.Link>
-                        <Nav.Link href='/donnation' className='navText'>Donnations</Nav.Link>
-                        <Nav.Link href='/event' className='navText'>Event</Nav.Link>
-                        <Nav.Link href='/blog' className='navText'>Blog</Nav.Link>
+                        <Nav.Link to='/home' className='navText'>Home</Nav.Link>
+                        <Nav.Link to='/' className='navText'>Donnations</Nav.Link>
+                        <Nav.Link to='/' className='navText'>Event</Nav.Link>
+                        <Nav.Link to='/' className='navText'>Blog</Nav.Link>
                         {
                             displayName? 
-                                <b>{displayName}</b>
+                                <Nav.Link to='#' className='navText'><b>{displayName}</b></Nav.Link>
                                 :
                                 <div>
                                     <Link to='/register'><Button className='btn btn-primary homeBtn'>Register</Button></Link>

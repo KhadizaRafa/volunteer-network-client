@@ -35,17 +35,14 @@ const UserTasks = () => {
                 }
             }));
     }
-
-
     return (
         <MDBContainer>
-            <Header email={loggedInUser.name}></Header>
+            <Header displayName={loggedInUser.name}></Header>
             <MDBRow>
             {
               userTasks && userTasks.map(task=><UserTaskDetails task={task} key={task._id}  handleDelete={handleDelete}></UserTaskDetails>)
             }
             </MDBRow>
-            
         </MDBContainer>
     );
 };
