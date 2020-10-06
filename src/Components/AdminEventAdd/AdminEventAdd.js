@@ -48,7 +48,7 @@ const AdminEventAdd = () => {
 
     return (
         <div className="mt-3">
-            <h5 className="mb-5 mt-3">Event Add</h5>
+            <h5 className="mb-5 mt-5">Event Add</h5>
             <form onSubmit={handleAddEvent}>
             <div className="eventBox p-5">
             <MDBRow>

@@ -5,7 +5,8 @@ const AdminVolunteerListView = ({ volunteer, handleDelete }) => {
     return (
         <div className="mt-3">
             <table className="table table-striped volunteer">
-                <thead>
+             {
+                <thead >
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
@@ -14,6 +15,7 @@ const AdminVolunteerListView = ({ volunteer, handleDelete }) => {
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
+             }
                 <tbody>
                     <tr key={volunteer._id}>
                         <th>{volunteer.name}</th>
